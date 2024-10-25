@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import {} from '../../assets/CSS/SingPage.css'
-import logo from '../../assets/img/logo-blackLike.png'
+import logo from '../../assets/img/logo.jpg'
+import logoSesion from '../../assets/img/logo_completo.jpg'
+import prueba from '../../assets/img/logo-blackLike.png'
 import { Button, FloatingLabel } from 'flowbite-react';
 
 const navigation = [
@@ -54,7 +56,7 @@ export const SingPage = () =>{
     */
     return(
         <>
-        <div className="justify-center w-screen">
+        <div className="justify-center w-screen h-screen overflow-hidden flex-col">
             <nav className="relative parent bg-orange-500 w-full h-16 flex justify-center">
                 <div className="flex flex-1 items-center sm:justify-start">
                     <div className="flex flex-shrink-0 items-center">
@@ -79,38 +81,50 @@ export const SingPage = () =>{
                     </div>
                 </div>
                 <div className="inset-y-0 right-0 flex items-center flex mr-4">
-                    <button type="button" className="rounded-full bg-white p-2 text-black hover:bg-black hover:text-white">
+                    <button type="button" className="rounded-full bg-white p-1 w-[8rem] text-black hover:bg-black hover:text-white">
                         Iniciar Sesión
                     </button>
                 </div>
             </nav>
 
-            <div className="border border-slate-300 rounded-md w-[50rem] justify-center items-center flex">
-                <div className="bg-gray-300 justify-center py-2 items-center">
-                    <img src={logo} alt="" style={{ width:300, height: 50 }}/>
+        <div className="flex items-center justify-center h-screen">
+            <div className="border border-slate-300 rounded-lg w-[60rem] flex justify-center items-center">
+                <div className="bg-gray-300 h-[30rem] border border-slate-300 w-1/2 flex justify-center items-center">
+                <img src={logoSesion} alt="" style={{ width: 420, height: 350 }} />
                 </div>
-                <div className="justify-center bg-indigo-600">
-                    <form className="space-y-4 md:space-y-6 p-9" noValidate>
+                <div className="w-1/2 flex items-center justify-center flex-col p-2">
+                    <p className="align-top font-medium text-2xl p-2">Iniciar Sesión</p>
+                    <form className="p-9" noValidate>
                         <div className="mx-auto w-screen-sm">
-                            <div className="grid grid-flow-col justify-stretch space-x-4">
-                                <FloatingLabel variant="outlined" label="Usuario" type="text" name="username" className=""
-                                id="username"/>
+
+                            <div className="grid justify-stretch space-x-4">
+                                <span className="font-bold text-blue-800">Usuario:</span>
+                                <FloatingLabel className="bg-gray-500 " variant="outlined" label="Usuario" type="text" name="username" id="username"/>
                             </div>
 
                             <div className="mt-2">
+                                <span className="font-bold text-blue-800">Contraseña:</span>
                                 <FloatingLabel variant="outlined" label="Contraseña" type="password" name="password"
-                                id="password" placeholder="********" required/>
+                                id="password" placeholder="********" required className="bg-gray-500"/>
                             </div>
                         </div>
 
-                        <Button type="submit" color="bg-blue-800" style={{ backgroundColor: "var(--red-3)"}}
-                        className="w-full">
+                        <Button type="submit" className="justify-center items-center border border-slate-300 w-full bg-blue-800 text-white hover:bg-black hover:text-white mb-3">
                             Iniciar Sesión
                         </Button>
+
+                        <div className="items-center flex flex-col">
+                            <p className="text-center text-red-700 font-bold">¿Aún no tienes cuenta?</p>
+                            <p className="text-center text-red-700 p-2">Registrate gratis para conocer los lanzamientos y ofertas que tenemos para tí.</p>
+                            <label className="underline text-center hover:text-gray-800 font-bold text-2xl">Registrarse</label>
+                        </div>
+
                     </form>
                 </div>
             </div>
-            
+        </div>
+        
+
         </div>
         </>
     )
